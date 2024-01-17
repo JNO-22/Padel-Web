@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg5"
+   inkscape:export-filename="bitmap.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     showgrid="false"
+     showguides="true"
+     inkscape:lockguides="true">
+    <sodipodi:guide
+       position="251.63885,636.01695"
+       orientation="1,0"
+       id="guide3834"
+       inkscape:locked="true" />
+    <sodipodi:guide
+       position="251.63885,265.15843"
+       orientation="0,-1"
+       id="guide8503"
+       inkscape:locked="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect234"
+       style="font-variation-settings:'wdth' 75, 'wght' 700;fill:#fdfdfd;fill-opacity:1;stroke:none;stroke-width:2.33402;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 512,54.951172 C 512,117.04651 491.56113,157.16797 366.11914,157.16797 h -247.3418 c -26.08629,0 -47.087887,39.80118 -47.087887,89.23828 0,0.14645 0.01135,0.28732 0.01172,0.43359 -0.0039,8.7e-4 -0.0078,10e-4 -0.01172,0.002 0.0039,8.6e-4 0.0078,0.001 0.01172,0.002 0.125023,49.23163 21.067848,88.79883 47.076167,88.79883 h 229.64454 c 5.91154,0.55378 11.8084,0.87109 17.69726,0.87109 C 491.56113,336.51367 512,376.63708 512,438.73242 V 246.8418 Z" />
+  </g>
+</svg>

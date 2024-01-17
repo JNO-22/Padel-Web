@@ -1,0 +1,57 @@
+.alquiler-container {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  width: 100%;
+  min-height: 100vh;
+  gap: 3em;
+  align-items: center;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    #00cd7f 0%,
+    #00cd7f 60%,
+    rgba(255, 255, 255, 1) 50%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.calendar-container {
+  display: flex;
+  border-radius: 12px;
+  height: 100%;
+  padding: 2em;
+  margin: 2em;
+}
+
+.alquiler-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  justify-self: center;
+  margin: 2em;
+}
+
+.form-hour-container {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  align-items: center;
+  height: 10vw;
+  width: 50%;
+  gap: 1em;
+}
+.form-hour-label {
+  font-size: 1.5em;
+  background-color: #00cd7f;
+  padding: 0.5em;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.form-hour-label:checked :active {
+  transform: scale(2.1);
+  background-color: #0b1813;
+}
