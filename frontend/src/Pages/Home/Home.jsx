@@ -2,15 +2,7 @@ import Salon from "./components/Salon/Salon";
 import Presentacion from "./components/Presentacion";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {
-  Box,
-  Grid,
-  GridItem,
-  Heading,
-  Image,
-  Button,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Grid, GridItem, Heading, Button, Text } from "@chakra-ui/react";
 
 function Home() {
   // Time for animation
@@ -30,16 +22,8 @@ function Home() {
   });
 
   return (
-    <Box overflow={"hidden"} display={"flex"} flexDirection={"column"}>
+    <Box overflow={"hidden"} display={"flex"} flexDirection={"column"} mt={10}>
       <Box padding={"2em"} boxSizing={"border-box"}>
-        <Image
-          src="\src\Images\logo-base1.jpg"
-          alt="logo"
-          boxSize={"80px"}
-          position={"absolute"}
-          top={"0px"}
-          left={"10px"}
-        />
         <Grid templateColumns={"1fr 1fr"} gap={4}>
           <GridItem
             alignSelf={"end"}

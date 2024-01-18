@@ -33,13 +33,13 @@ const autenticar = async (req, res) => {
 
   if (!usuario) {
     const error = new Error("El usuario no existe");
-    return res.status(404).json({ message: error.message });
+    return res.status(404).json({ msg: error.message });
   }
   //comprobar si esta confirmado
 
   if (!usuario.confirmado) {
     const error = new Error("Tu cuenta no ha sido confirmada");
-    return res.status(403).json({ message: error.message });
+    return res.status(403).json({ msg: error.message });
   }
 
   // comprobar password
@@ -52,7 +52,7 @@ const autenticar = async (req, res) => {
     });
   } else {
     const error = new Error("El password es incorrecto");
-    return res.status(403).json({ message: error.message });
+    return res.status(403).json({ msg: error.message });
   }
 };
 
@@ -61,7 +61,7 @@ const confirmar = async (req, res) => {
   const usuarioConfirmar = await Usuario.findOne({ token });
   if (!usuarioConfirmar) {
     const error = new Error("Token no valido");
-    return res.status(403).json({ message: error.message });
+    return res.status(403).json({ msg: error.message });
   }
   try {
     usuarioConfirmar.confirmado = true;
@@ -79,7 +79,7 @@ const olvidePassword = async (req, res) => {
 
   if (!usuario) {
     const error = new Error("El usuario no existe");
-    return res.status(404).json({ message: error.message });
+    return res.status(404).json({ msg: error.message });
   }
 
   try {
@@ -97,7 +97,7 @@ const comprobarToken = async (req, res) => {
 
   if (!tokenValido) {
     const error = new Error("Token no valido");
-    return res.status(404).json({ message: error.message });
+    return res.status(404).json({ msg: error.message });
   } else {
     res.json({ message: "Token valido", tokenValido });
   }
@@ -114,13 +114,13 @@ const nuevoPassword = async (req, res) => {
     usuario.token = "";
     try {
       await usuario.save();
-      res.json({ message: "Password modificado correctamente" });
+      res.json({ msg: "Password modificado correctamente" });
     } catch (error) {
       console.log(error);
     }
   } else {
     const error = new Error("Token no valido");
-    return res.status(404).json({ message: error.message });
+    return res.status(404).json({ msg: error.message });
   }
 };
 

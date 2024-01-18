@@ -20,7 +20,7 @@ const OlvidePassword = () => {
       backgroundColor={"brand.blue"}
     >
       <Container
-        maxW={"3xl"}
+        w={"100%"}
         p={50}
         boxShadow={"lg"}
         rounded={"lg"}

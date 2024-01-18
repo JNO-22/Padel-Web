@@ -77,6 +77,14 @@ const Button = defineStyle({
       borderRadius: "40px",
       color: "#55e951",
     },
+    NavBar: {
+      borderRadius: "0px",
+      backgroundColor: "transparent",
+      _active: {
+        transform: "none",
+        boxShadow: "0",
+      },
+    },
   },
 });
 
@@ -101,6 +109,7 @@ const Theme = extendTheme({
       white: "#fdfdfd",
       green: "#55e951",
       blue: "#00eeff",
+      red: "#ff0000",
     },
   },
 });

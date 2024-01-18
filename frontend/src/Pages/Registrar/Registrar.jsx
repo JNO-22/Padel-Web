@@ -40,18 +40,23 @@ const Registrar = () => {
     // Aqui puedes hacer una llamada a tu backend para registrar el usuario
 
     try {
-      const { data } = await axios.post("http://localhost:3001/usuario/crear", {
+      const { data } = await axios.post("http://localhost:4000/usuario/crear", {
         nombre,
         email,
         password,
       });
       setAlerta({
-        error: 0,
+        error: null,
         msg: data.msg,
       });
+      setNombre("");
+      setEmail("");
+      setPassword("");
+      setRepetirPassword("");
     } catch (error) {
+      console.log(error);
       setAlerta({
-        error: error.response.data.error,
+        error: error.response.status,
         msg: error.response.data.msg,
       });
     }
@@ -96,7 +101,23 @@ const Registrar = () => {
             Crea tu cuenta
           </Heading>
 
-          {alerta.error === 0 ? (
+          {alerta.error ? (
+            <Text
+              fontSize={"lg"}
+              textAlign={"center"}
+              fontWeight={"bold"}
+              mb={4}
+              color={"brand.white"}
+              backgroundColor={"brand.red"}
+              p={4}
+              borderRadius={"md"}
+              boxShadow={"lg"}
+            >
+              {alerta.msg}
+            </Text>
+          ) : null}
+
+          {alerta.msg && !alerta.error ? (
             <Text
               fontSize={"lg"}
               textAlign={"center"}
