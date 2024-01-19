@@ -8,8 +8,34 @@ import {
   Text,
   Container,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import Alerta from "../../Components/Alerta/Alerta";
 
 const OlvidePassword = () => {
+  const [email, setEmail] = useState("");
+  const [alerta, setAlerta] = useState({});
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Llamada al backend para enviar el email
+    if (email === "" || email.length < 6) {
+      setAlerta({ error: true, msg: "EL EMAIL ES OBLIGATORIO" });
+      return;
+    }
+
+    try {
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/usuario/reset-password`,
+        { email }
+      );
+
+      setAlerta({ error: false, msg: data.msg });
+    } catch (error) {
+      setAlerta({ error: true, msg: error.response.data.msg });
+    }
+  };
   return (
     <Box
       h={"100vh"}
@@ -17,35 +43,33 @@ const OlvidePassword = () => {
       display={"flex"}
       justifyContent={"center"}
       alignItems={"center"}
-      backgroundColor={"brand.blue"}
+      backgroundColor={"brand.white"}
     >
       <Container
-        w={"100%"}
-        p={50}
-        boxShadow={"lg"}
-        rounded={"lg"}
         display={"flex"}
         flexDirection={"column"}
         justifyContent={"center"}
-        backgroundColor={"brand.white"}
+        alignItems={"center"}
+        py={10}
       >
-        <form>
-          <Heading
-            fontWeight={"bold"}
-            textAlign={"center"}
-            color={"brand.green"}
-            mb={4}
-          >
+        {alerta.msg && <Alerta alerta={alerta} />}
+
+        <form onSubmit={handleSubmit}>
+          <Heading fontWeight={"bold"} textAlign={"center"} color={"brand.green"} mb={5}>
             Olvidaste tu contraseña?
           </Heading>
-          <Text textAlign={"center"}>
-            Cambiar tu contraseña para recuperar tu cuenta
-          </Text>
-          <FormControl mt={10}>
+          <Text textAlign={"center"}>Cambiar tu contraseña para recuperar tu cuenta</Text>
+          <FormControl mt={5}>
             <FormLabel fontWeight={"bold"} fontSize={"lg"}>
               Email
             </FormLabel>
-            <Input type="email" placeholder="Email del usuario" isRequired />
+            <Input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="usuario@ejemplo.com"
+              isRequired
+            />
           </FormControl>
           <Box mt={4} display={"flex"} justifyContent={"center"}>
             <Button

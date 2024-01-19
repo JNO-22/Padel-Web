@@ -19,7 +19,7 @@ router.get("/lista", Listar);
 router.post("/crear", crear); //creador
 router.post("/login", autenticar); //login
 router.get("/confirmar/:token", confirmar); //confirmador
-router.post("/olvido_password", olvidePassword); //Reseteo de contraseña
-router.route("/olvido_password/:token").get(comprobarToken).post(nuevoPassword); //confirmador y cambio de contraseña
+router.post("/reset-password", olvidePassword); //Reseteo de contraseña
+router.route("/reset-password/:token").get(comprobarToken).post(nuevoPassword); //confirmador y cambio de contraseña
 router.get("/perfil", checkAuth, perfil);
 export default router;

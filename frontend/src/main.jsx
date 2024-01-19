@@ -25,10 +25,10 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "/olvide-password",
+        path: "/reset-password",
         element: <OlvidePassword />,
       },
-      { path: "/olvide-password/:token", element: <NuevoPassword /> },
+      { path: "/reset-password/:id", element: <NuevoPassword /> },
       {
         path: "/confirmar/:id",
         element: <ConfirmarCuenta />,

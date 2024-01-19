@@ -11,6 +11,7 @@ import {
   Text,
   Link as ChakraLink,
 } from "@chakra-ui/react";
+import Alerta from "../../Components/Alerta/Alerta";
 import axios from "axios";
 import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
@@ -24,39 +25,39 @@ const Registrar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Validar formulario antes de enviarlo
     if (password !== repetirPassword) {
-      setAlerta({ error: 1, msg: "Las contraseñas no coinciden" });
+      setAlerta({ error: true, msg: "Las contraseñas no coinciden" });
       return;
     } else if (password.length < 6) {
       setAlerta({
-        error: 2,
+        error: true,
         msg: "La contraseña debe tener al menos 6 caracteres",
       });
       return;
-    } else {
-      setAlerta("");
     }
 
-    // Aqui puedes hacer una llamada a tu backend para registrar el usuario
+    // Llamada al backend para registrar el usuario
 
     try {
-      const { data } = await axios.post("http://localhost:4000/usuario/crear", {
+      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/usuario/crear`, {
         nombre,
         email,
         password,
       });
       setAlerta({
-        error: null,
+        error: false,
         msg: data.msg,
       });
+
+      // Limpiar formulario
       setNombre("");
       setEmail("");
       setPassword("");
       setRepetirPassword("");
     } catch (error) {
-      console.log(error);
       setAlerta({
-        error: error.response.status,
+        error: true,
         msg: error.response.data.msg,
       });
     }
@@ -81,7 +82,7 @@ const Registrar = () => {
           gap={10}
           w={"80%"}
         >
-          <Heading> Ya tienes una cuenta? </Heading>
+          <Heading> Ya tienes una cuenta?. </Heading>
           <Text>Puedes iniciar secion con tus credenciales aqui </Text>
         </Box>
         <Box>
@@ -92,46 +93,12 @@ const Registrar = () => {
       </GridItem>
       <GridItem m={"auto"} w={"60%"}>
         <form onSubmit={handleSubmit}>
-          <Heading
-            fontWeight={"bold"}
-            textAlign={"center"}
-            color={"brand.green"}
-            mb={10}
-          >
+          <Heading fontWeight={"bold"} textAlign={"center"} color={"brand.green"} mb={10}>
             Crea tu cuenta
           </Heading>
 
-          {alerta.error ? (
-            <Text
-              fontSize={"lg"}
-              textAlign={"center"}
-              fontWeight={"bold"}
-              mb={4}
-              color={"brand.white"}
-              backgroundColor={"brand.red"}
-              p={4}
-              borderRadius={"md"}
-              boxShadow={"lg"}
-            >
-              {alerta.msg}
-            </Text>
-          ) : null}
+          {alerta.msg && <Alerta alerta={alerta} />}
 
-          {alerta.msg && !alerta.error ? (
-            <Text
-              fontSize={"lg"}
-              textAlign={"center"}
-              fontWeight={"bold"}
-              mb={4}
-              color={"brand.white"}
-              backgroundColor={"brand.blue"}
-              p={4}
-              borderRadius={"md"}
-              boxShadow={"lg"}
-            >
-              {alerta.msg}
-            </Text>
-          ) : null}
           <FormControl mb={4}>
             <FormLabel fontWeight={"bold"}> Nombre</FormLabel>
             <Input
@@ -152,10 +119,7 @@ const Registrar = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </FormControl>
-          <FormControl
-            mb={4}
-            isInvalid={alerta.error === 1 || alerta.error === 2}
-          >
+          <FormControl mb={4} isInvalid={alerta.error === 1 || alerta.error === 2}>
             <FormLabel fontWeight={"bold"}> Contraseña </FormLabel>
             {alerta.error === 1 || alerta.error === 2 ? (
               <FormErrorMessage>{alerta.msg}</FormErrorMessage>

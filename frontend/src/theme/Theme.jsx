@@ -28,6 +28,9 @@ const Link = defineStyle({
       letterSpacing: "1px",
       borderRadius: "40px",
       transition: "all 0.3s ease",
+      _hover: {
+        transform: "translateY(-2px)",
+      },
     },
     Outline: {
       color: "#fdfdfd",
@@ -53,8 +56,7 @@ const Button = defineStyle({
     border: "none",
     _active: {
       transform: "translateY(2px)",
-      boxShadow:
-        " 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+      boxShadow: " 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
     },
   },
   variants: {

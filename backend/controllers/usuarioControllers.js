@@ -1,6 +1,8 @@
 import Usuario from "../models/usuarios.js";
 import generarId from "../helper/generarid.js";
 import generarJWT from "../helper/generarJWT.js";
+import { emailRegistro, emailReset } from "../helper/emails.js";
+
 import { model } from "mongoose";
 const crear = async (req, res) => {
   // evitar duplicados
@@ -16,6 +18,9 @@ const crear = async (req, res) => {
     const usuario = new Usuario(req.body);
     usuario.token = generarId();
     await usuario.save();
+
+    //enviar email de confirmacion
+    emailRegistro({ nombre: usuario.nombre, email: usuario.email, token: usuario.token });
 
     res.json({
       msg: "Usuario creado exitosamente , revisa tu email para confirmar tu cuenta",
@@ -67,7 +72,7 @@ const confirmar = async (req, res) => {
     usuarioConfirmar.confirmado = true;
     usuarioConfirmar.token = "";
     await usuarioConfirmar.save();
-    res.json({ message: "Usuario confirmado correctamente" });
+    res.json({ msg: "Usuario confirmado correctamente" });
   } catch (error) {
     console.log(error);
   }
@@ -85,7 +90,9 @@ const olvidePassword = async (req, res) => {
   try {
     usuario.token = generarId();
     await usuario.save();
-    res.json({ message: "Hemos enviado un email con las instrucciones" });
+    res.json({ msg: "Hemos enviado un email con las instrucciones" });
+    //enviar email de reset password
+    emailReset({ nombre: usuario.nombre, email: usuario.email, token: usuario.token });
   } catch (error) {
     console.log(error);
   }
