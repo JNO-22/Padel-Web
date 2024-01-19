@@ -106,7 +106,7 @@ const comprobarToken = async (req, res) => {
     const error = new Error("Token no valido");
     return res.status(404).json({ msg: error.message });
   } else {
-    res.json({ message: "Token valido", tokenValido });
+    res.json({ msg: "Token valido", tokenValido });
   }
 };
 
@@ -121,7 +121,7 @@ const nuevoPassword = async (req, res) => {
     usuario.token = "";
     try {
       await usuario.save();
-      res.json({ msg: "Password modificado correctamente" });
+      res.json({ msg: "Contraseña modificada correctamente" });
     } catch (error) {
       console.log(error);
     }

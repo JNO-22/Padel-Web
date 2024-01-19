@@ -29,11 +29,13 @@ const ConfirmarCuenta = () => {
 
   return (
     <Box
+      h={"100vh"}
       w={"100%"}
       display={"flex"}
       flexDirection={"column"}
       justifyContent={"center"}
       alignItems={"center"}
+      backgroundColor={"#7FD1AE"}
     >
       <Box
         w={"60%"}
@@ -47,7 +49,7 @@ const ConfirmarCuenta = () => {
         boxShadow={"lg"}
         gap={10}
       >
-        <Box w={"60%"}>{alerta.msg && <Alerta alerta={alerta} />}</Box>
+        <Box w={"80%"}>{alerta.msg && <Alerta alerta={alerta} />}</Box>
         {confirmado && (
           <ChakraLink as={RouterLink} variant={"Green"} to="/login">
             <Text fontSize={"xl"}>Inicia sesión</Text>

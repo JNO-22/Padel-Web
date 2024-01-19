@@ -19,12 +19,7 @@ const Login = () => {
     <Grid templateColumns={"5fr 3fr"} h={"100vh"} justifyContent={"center"}>
       <GridItem m={"auto"} w={"60%"}>
         <form>
-          <Heading
-            fontWeight={"bold"}
-            textAlign={"center"}
-            color={"brand.green"}
-            mb={10}
-          >
+          <Heading fontWeight={"bold"} textAlign={"center"} color={"brand.green"} mb={10}>
             ENTRA A TU CUENTA
           </Heading>
           <FormControl>
@@ -41,7 +36,7 @@ const Login = () => {
           </FormControl>
           <Stack mt={4} direction={"row"} justifyContent={"space-around"}>
             <Checkbox>Recordarme</Checkbox>
-            <ChakraLink as={RouterLink} to={"/olvide-password"}>
+            <ChakraLink as={RouterLink} to={"/reset-password"}>
               Olvide mi contraseña
             </ChakraLink>
           </Stack>
@@ -76,9 +71,7 @@ const Login = () => {
           gap={10}
         >
           <Heading> CREA TU CUENTA </Heading>
-          <Text w={"80%"}>
-            Registrate para poder reservar fácilmente y disfrutar de beneficios
-          </Text>
+          <Text w={"80%"}>Registrate para poder reservar fácilmente y disfrutar de beneficios</Text>
         </Box>
         <Box>
           <ChakraLink variant={"Outline"} as={RouterLink} to={"/register"}>

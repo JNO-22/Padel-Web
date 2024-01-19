@@ -24,15 +24,7 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      {
-        path: "/reset-password",
-        element: <OlvidePassword />,
-      },
-      { path: "/reset-password/:id", element: <NuevoPassword /> },
-      {
-        path: "/confirmar/:id",
-        element: <ConfirmarCuenta />,
-      },
+
       {
         path: "/alquiler",
         element: <Alquiler />,
@@ -46,6 +38,15 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/reset-password",
+    element: <OlvidePassword />,
+  },
+  { path: "/reset-password/:token", element: <NuevoPassword /> },
+  {
+    path: "/confirmar/:id",
+    element: <ConfirmarCuenta />,
   },
 ]);
 
