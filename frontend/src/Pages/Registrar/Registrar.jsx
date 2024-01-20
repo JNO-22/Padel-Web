@@ -12,7 +12,7 @@ import {
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import Alerta from "../../Components/Alerta/Alerta";
-import axios from "axios";
+import clienteAxios from "../../config/clienteAxios";
 import { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 const Registrar = () => {
@@ -40,7 +40,7 @@ const Registrar = () => {
     // Llamada al backend para registrar el usuario
 
     try {
-      const { data } = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/usuario/crear`, {
+      const { data } = await clienteAxios.post(`/usuario/crear`, {
         nombre,
         email,
         password,

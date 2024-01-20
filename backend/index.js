@@ -23,8 +23,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Routes
-app.use("/usuario", usuarioRouters);
-app.use("/alquiler", alquilerRouters);
+app.use("/api/usuario", usuarioRouters);
+app.use("/api/alquiler", alquilerRouters);
 
 const PORT = process.env.PORT || 4000;
 
