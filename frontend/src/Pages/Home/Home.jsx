@@ -37,7 +37,7 @@ function Home() {
                   <Text as={"span"} color={"brand.green"}>
                     JUEGA{" "}
                   </Text>
-                  Y CELEBRA <br />
+                  Y CCELEBRA <br />
                   EN UN SOLO LUGAR
                 </Text>
               </Heading>
